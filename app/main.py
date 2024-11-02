@@ -8,15 +8,12 @@ from fastapi.staticfiles import StaticFiles
 app = FastAPI()
 
 #Routers
-app.include_router(products.router)
 app.include_router(users.router)
 app.include_router(basic_auth_users.router)
-app.include_router(chat.router)
 app.mount("/static",StaticFiles(directory="static"),name="static")
-
 
 
 
 @app.get("/")
 async def root():
-    return {"message": "Trabajo Practico Seminario"}
+    return {"message": "Trabajo Practico Ciencia de Datos"}
