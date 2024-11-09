@@ -9,7 +9,6 @@ class User(BaseModel):
     respuesta2:str | None = None
     respuesta3:str | None = None
     respuesta4:str | None = None
-    respuesta5:str | None = None
     
 class User_db(User):
     password:str
