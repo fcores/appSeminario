@@ -1,14 +1,15 @@
 from pydantic import BaseModel
 
 class User(BaseModel):
-    id:int
     name: str
     email: str | None = None
-    age: int | None = None
-    empresa:str | None = None
     username:str
-    full_name: str
     disabled: bool | None = None
+    respuesta1:str | None = None
+    respuesta2:str | None = None
+    respuesta3:str | None = None
+    respuesta4:str | None = None
+    respuesta5:str | None = None
     
 class User_db(User):
     password:str
