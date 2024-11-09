@@ -2,6 +2,7 @@ from fastapi import APIRouter,HTTPException
 from pydantic import BaseModel
 from db.userdb import users_db
 from db.model.user import User
+from db.model.user import User_db
 
 router = APIRouter(prefix="/users",tags=["users"])
 
@@ -20,7 +21,7 @@ async def get_user_by_id(username: str):
     return user
 
 @router.post("/", status_code=201)
-async def create_user(user: User):
+async def create_user(user: User_db):
     """CREAR USUARIOS NUEVOS"""
     if search_users(user.username):
         raise HTTPException(status_code=409, detail="El usuario ya existe")
@@ -41,7 +42,7 @@ async def update_user(user: User):
     return {"detail": "Usuario modificado"}
 
 @router.delete("/{username}")
-async def delete_user(id: int):
+async def delete_user(username: str):
     """FUNCION PARA BORRAR USUARIOS"""
     username_to_delete = None
 
